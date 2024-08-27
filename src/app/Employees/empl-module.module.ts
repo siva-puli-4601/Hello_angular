@@ -9,7 +9,7 @@ import { HomeComponentEmployee } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 
 
 
@@ -20,11 +20,9 @@ import { RouterLink } from '@angular/router';
     SidebarComponent,
   ],
   imports: [
-    RouterLink,
     CommonModule,
     EmplModuleRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
+    SharedModule
   ]
 })
 export class EmplModuleModule { }

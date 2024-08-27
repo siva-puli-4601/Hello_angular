@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterLink } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
     DisplayComponent,
     AboutComponent,
     ProfileComponent,
+    
   ],
   imports: [
     HttpClientModule,
@@ -32,11 +34,10 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    RouterLink,
     SharedModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
  }

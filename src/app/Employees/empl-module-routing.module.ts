@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmplModuleComponent } from './empl-module.component';
-import { DashboardComponent } from '../admin/dashboard/dashboard.component';
+import { HomeComponentEmployee } from './home/home.component';
 import { LeaveComponent } from './leave/leave.component';
+import { DashboardComponent } from '../admin/dashboard/dashboard.component';
 
-const routes: Routes = [{path:'',component:DashboardComponent},
-  {path:"leave",component:LeaveComponent},
-  { path: '**', redirectTo: '' }
+const routes: Routes = [
+  { path: '', component: DashboardComponent },
+  { path: 'leave', component: LeaveComponent },
+  { path: '**', redirectTo: '' } // Redirect unknown routes to home or a not-found page
 ];
 
 @NgModule({

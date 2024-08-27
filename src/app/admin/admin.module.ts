@@ -7,6 +7,7 @@ import { HomeComponentAdmin } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LeaverequestsComponent } from './leaverequests/leaverequests.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterLink, RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
   ],
 })
 export class AdminModule { }
