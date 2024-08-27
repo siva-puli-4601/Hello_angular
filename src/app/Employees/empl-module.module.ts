@@ -10,6 +10,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterModule } from '@angular/router';
+import { LeaveComponent } from './leave/leave.component';
 
 
 
@@ -18,11 +19,13 @@ import { RouterLink, RouterModule } from '@angular/router';
     EmplModuleComponent,
     HomeComponentEmployee,
     SidebarComponent,
+    LeaveComponent
   ],
   imports: [
     CommonModule,
     EmplModuleRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class EmplModuleModule { }

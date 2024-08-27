@@ -14,8 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    ReactiveFormsModule
+    RouterModule
   ],
   exports: [HeaderComponent, FooterComponent, DashboardComponent]
 })

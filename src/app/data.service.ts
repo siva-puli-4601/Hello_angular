@@ -24,4 +24,9 @@ export class DataService {
     const apiUrl = 'http://localhost:8001/api/users1/profile';
     return this.http.post(apiUrl,data);
   }
+  getReason(data:any):Observable<any>
+  {
+    const apiUral='http://localhost:8001/api/users1/genratereason';
+    return this.http.post(apiUral,data);
+  }
 }
