@@ -1,0 +1,31 @@
+<!-- <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" formControlName="startDate" class="form-control" />
+      <div *ngIf="leaveForm.get('startDate').invalid && leaveForm.get('startDate').touched" class="error">
+        Start date is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" formControlName="endDate" class="form-control" />
+      <div *ngIf="leaveForm.get('endDate').invalid && leaveForm.get('endDate').touched" class="error">
+        End date is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="leaveType">Leave Type:</label>
+      <select id="leaveType" formControlName="leaveType" class="form-control">
+        <option value="" disabled>Select Leave Type</option>
+        <option *ngFor="let type of leaveTypes" [value]="type">{{ type }}</option>
+      </select>
+      <div *ngIf="leaveForm.get('leaveType').invalid && leaveForm.get('leaveType').touched" class="error">
+        Leave type is required.
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="leaveForm.invalid">Submit</button>
+  </form>
+   -->

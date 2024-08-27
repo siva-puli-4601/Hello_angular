@@ -1,0 +1,57 @@
+<div>
+  <form [formGroup]="reactiveform" (ngSubmit)="onSubmit()">
+    <!-- Username -->
+    <label for="Usrname">Username</label>
+    <input [class.is-invalid]="reactiveform.get('username').invalid && reactiveform.get('username').touched" formControlName="username" type="text"/><br>
+    <div *ngIf="reactiveform.get('username').invalid && reactiveform.get('username').touched">
+      <small *ngIf="reactiveform.get('username').errors?.required">Username is required</small>
+      <small *ngIf="reactiveform.get('username').errors?.minlength">
+        Username must be at least 4 characters
+      </small>
+      <small *ngIf="reactiveform.get('username').errors?.errorUsername">
+        {{ reactiveform.get('username').errors.errorUsername.value }} is not a valid username
+      </small>
+    </div>
+    
+    <!-- Password -->
+    <label for="Passwd">Password</label>
+    <input formControlName="password" type="password" /><br>
+    
+    <!-- Confirm Password -->
+    <label for="Conform Password">Confirm Password</label>
+    <input formControlName="conformpass" type="password"/><br>
+    <small *ngIf="reactiveform.errors?.erroemsg">{{reactiveform.errors.erroemsg.value}} Password Mismatch</small>
+    
+    <!-- Address -->
+    <div formGroupName="address">
+      <label for="city">City</label>
+      <input formControlName="city" type="text"/><br>
+      <label for="country">Country</label>
+      <input formControlName="country" type="text"/><br>
+      <label for="pincode">Pincode</label>
+      <input formControlName="pincode" type="text"/><br>
+    </div>
+    
+    <!-- Email -->
+    <label for="mail">Email</label>
+    <input formControlName="email" type="email"/>
+    <small *ngIf="reactiveform.get('email').errors?.required">Email Required</small><br>
+    
+    <!-- Role -->
+    <label for="role">Role</label>
+    <input [class.is-invalid]="reactiveform.get('role').invalid && reactiveform.get('role').touched" formControlName="role" type="text"/><br>
+    
+    <!-- Image URL -->
+    <label for="imageUrl">Image URL</label>
+    <input formControlName="imageUrl" type="text"/><br>
+    <small *ngIf="reactiveform.get('imageUrl').errors?.required">Image URL is required</small>
+    
+    <!-- Submit Button -->
+    <button [disabled]="!reactiveform.valid" type="submit">Submit</button>
+    
+    <!-- Login Button -->
+    <div class="login-container">
+      <a [routerLink]="['/login']" class="login-button">Already have an account? Login</a>
+    </div>
+  </form>
+</div>
