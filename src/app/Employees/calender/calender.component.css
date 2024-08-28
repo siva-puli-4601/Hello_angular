@@ -1,53 +1,32 @@
 .calendar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(to right, #f8c291, #e66767);
-    color: white;
-    font-family: 'Arial', sans-serif;
+    width: 300px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-family: Arial, sans-serif;
   }
   
   .calendar-header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
   }
   
-  h2 {
-    margin: 0;
-    font-size: 2em;
+  .calendar-body {
+    margin-top: 10px;
   }
   
   .weekdays, .days {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    flex-wrap: wrap;
   }
   
-  .weekday {
-    flex: 1;
+  .weekdays div, .days div {
+    width: calc(100% / 7);
     text-align: center;
-    font-weight: bold;
-    padding: 10px;
-  }
-  
-  .days div {
-    flex: 1;
-    text-align: center;
-    padding: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .days div:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 0;
   }
   
   .holiday {
-    background-color: rgba(255, 99, 71, 0.8);
+    background-color: #ffcccc;
   }
   

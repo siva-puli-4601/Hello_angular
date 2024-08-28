@@ -1,73 +1,73 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { HolidaycomponentComponent } from '../holidaycomponent/holidaycomponent.component';
 @Component({
   selector: 'app-calender',
   templateUrl: './calender.component.html',
   styleUrls: ['./calender.component.css']
 })
 export class CalenderComponent implements OnInit {
-  
-  currentMonth: number = new Date().getMonth();
-  currentYear: number = new Date().getFullYear();
-  selectedHoliday: { date: string, reason: string } | null = null;
-
+  currentYear: number;
+  currentMonth: number;
+  daysInMonth: number[] = [];
+  holidays: { [key: string]: boolean } = {};
   months: string[] = [
     'January', 'February', 'March', 'April', 'May', 'June', 
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
+  weekDays: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-  weekDays: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  constructor() {
+    const today = new Date();
+    this.currentYear = today.getFullYear();
+    this.currentMonth = today.getMonth();
+    this.initializeHolidays();
+    this.generateCalendar();
+  }
 
-  daysInMonth: number[] = [];
+  ngOnInit(): void {}
 
-  holidays: { date: number, reason: string }[] = [
-    { date: 25, reason: 'Christmas Day' },
-    { date: 1, reason: 'New Year\'s Day' },
-    // Other holidays...
-  ];
+  initializeHolidays(): void {
+    this.holidays = {
+      '2024-01-01': true,
+      '2024-12-25': true,
+      '2024-06-04':true,
+      '2025-06-04':true,
+      // Add more holidays here
+    };
+  }
 
-  constructor(public dialog: MatDialog) {}
-
-  ngOnInit(): void {
-    this.updateCalendar();
+  generateCalendar(): void {
+    const daysInMonth = new Date(this.currentYear, this.currentMonth + 1, 0).getDate();
+    this.daysInMonth = Array.from({ length: daysInMonth }, (_, i) => i + 1);
   }
 
   isHoliday(day: number): boolean {
-    return this.holidays.some(holiday => holiday.date === day);
+    const dateStr = `${this.currentYear}-${this.pad(this.currentMonth + 1)}-${this.pad(day)}`;
+    return !!this.holidays[dateStr];
   }
 
-  openHolidayPopup(day: number): void {
-    const holiday = this.holidays.find(holiday => holiday.date === day);
-    if (holiday) {
-      this.selectedHoliday = { 
-        date: `${day} ${this.months[this.currentMonth]} ${this.currentYear}`, 
-        reason: holiday.reason 
-      };
-      this.dialog.open(HolidaycomponentComponent, {
-        data: this.selectedHoliday
-      });
-    }
-  }
-
-  closeHolidayPopup(): void {
-    this.selectedHoliday = null;
+  pad(number: number): string {
+    return number < 10 ? `0${number}` : `${number}`;
   }
 
   previousMonth(): void {
-    this.currentMonth = (this.currentMonth - 1 + 12) % 12;
-    if (this.currentMonth === 11) this.currentYear--;
-    this.updateCalendar();
+    if (this.currentMonth === 0) {
+      this.currentMonth = 11;
+      this.currentYear--;
+    } else {
+      this.currentMonth--;
+    }
+    this.generateCalendar();
   }
 
   nextMonth(): void {
-    this.currentMonth = (this.currentMonth + 1) % 12;
-    if (this.currentMonth === 0) this.currentYear++;
-    this.updateCalendar();
-  }
-
-  updateCalendar(): void {
-    const daysInThisMonth = new Date(this.currentYear, this.currentMonth + 1, 0).getDate();
-    this.daysInMonth = Array.from({ length: daysInThisMonth }, (_, i) => i + 1);
+    if (this.currentMonth === 11) {
+      this.currentMonth = 0;
+      this.currentYear++;
+    } else {
+      this.currentMonth++;
+    }
+    this.generateCalendar();
   }
 }
+

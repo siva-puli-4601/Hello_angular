@@ -1,22 +1,16 @@
-
 <div class="calendar">
     <div class="calendar-header">
-      <button mat-icon-button (click)="previousMonth()">
-        <mat-icon>chevron_left</mat-icon>
-      </button>
+      <button (click)="previousMonth()">&lt;</button>
       <h2>{{ months[currentMonth] }} {{ currentYear }}</h2>
-      <button mat-icon-button (click)="nextMonth()">
-        <mat-icon>chevron_right</mat-icon>
-      </button>
+      <button (click)="nextMonth()">&gt;</button>
     </div>
     <div class="calendar-body">
       <div class="weekdays">
-        <div *ngFor="let day of weekDays" class="weekday">{{ day }}</div>
+        <div *ngFor="let day of weekDays">{{ day }}</div>
       </div>
       <div class="days">
         <div *ngFor="let day of daysInMonth; let i = index"
-             [ngClass]="{'holiday': isHoliday(day)}"
-             (click)="openHolidayPopup(day)">
+             [ngClass]="{'holiday': isHoliday(day)}">
           {{ day }}
         </div>
       </div>
