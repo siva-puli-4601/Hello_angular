@@ -16,6 +16,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterLink } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { HeaderComponent } from './header/header.component';
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

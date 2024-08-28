@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
      const data=this.ReactiveForm.value;
-     this.dataser.checkUser(data).subscribe((data)=>
+     this.dataser.postApi("login",data).subscribe((data)=>
     {
       const {email,role,username,profile}=data.message;
       localStorage.setItem('email',email);

@@ -38,7 +38,7 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
      const res=this.reactiveform.value;
-     this.ser.addData(res).subscribe((data)=>{
+     this.ser.postApi("register",res).subscribe((data)=>{
       console.log(data);
      },
     (err)=>{

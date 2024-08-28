@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     const email=localStorage.getItem('email');
     const send={"email":email};
-    this.ser.getUserProfile(send).subscribe((data:any)=>{
+    this.ser.postApi("profile",send).subscribe((data:any)=>{
       
       this.userData=data.message;
     },
