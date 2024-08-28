@@ -14,6 +14,7 @@ import { LeaveComponent } from './leave/leave.component';
 import { CalenderComponent } from './calender/calender.component';
 import { HolidaycomponentComponent } from './holidaycomponent/holidaycomponent.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShowLeavesComponent } from './show-leaves/show-leaves.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SidebarComponent,
     LeaveComponent,
     CalenderComponent,
-    HolidaycomponentComponent
+    HolidaycomponentComponent,
+    ShowLeavesComponent
   ],
   imports: [
     MatDialogModule,
