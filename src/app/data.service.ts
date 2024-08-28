@@ -13,4 +13,9 @@ export class DataService {
     const apiUrl = this.url+msg;
     return this.http.post(apiUrl,data);
   }
+  getApi(msg:any):Observable<any>
+  {
+    const apiUrl = this.url+msg;
+    return this.http.get(apiUrl);
+  }
 }
