@@ -1,0 +1,27 @@
+<div class="employee-search-container">
+    <div class="search-wrapper">
+      <input
+        type="text"
+        [formControl]="searchControl"
+        placeholder="Search employees by name, role, or email"
+        class="search-input"
+      />
+      <i class="fa fa-search search-icon"></i> <!-- Font Awesome search icon -->
+    </div>
+  
+    <div *ngIf="filteredEmployees.length === 0" class="no-results">
+      No employees found.
+    </div>
+  
+    <ul *ngIf="filteredEmployees.length > 0" class="employee-list">
+      <li *ngFor="let employee of filteredEmployees" class="employee-item">
+        <img [src]="employee.photoUrl" alt="{{ employee.username }}'s photo" class="employee-photo" />
+        <div class="employee-info">
+          <h3>{{ employee.username }}</h3>
+          <p><strong>Role:</strong> {{ employee.role }}</p>
+          <p><strong>Email:</strong> {{ employee.email }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

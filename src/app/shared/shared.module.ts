@@ -5,8 +5,11 @@ import { FooterComponent } from '../Employees/footer/footer.component';
 import { DashboardComponent } from '../admin/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router'; // Correct import
 import { ReactiveFormsModule } from '@angular/forms';
-import { LeaveComponent } from '../Employees/leave/leave.component';
-import { ShowLeavesComponent } from '../Employees/show-leaves/show-leaves.component';
+// import { LeaveComponent } from '../leave/leave.component';
+
+import { ShowLeavesComponent } from '../show-leaves/show-leaves.component';
+import { LeaveComponent } from '../leave/leave.component';
+import { EmployeeSerachComponent } from '../employee-serach/employee-serach.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,14 @@ import { ShowLeavesComponent } from '../Employees/show-leaves/show-leaves.compon
     FooterComponent,
     DashboardComponent,
     LeaveComponent,
-    ShowLeavesComponent
+    ShowLeavesComponent,
+    EmployeeSerachComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule
   ],
-  exports: [HeaderComponent, FooterComponent, DashboardComponent,LeaveComponent,ShowLeavesComponent]
+  exports: [HeaderComponent, FooterComponent, DashboardComponent,LeaveComponent,ShowLeavesComponent,EmployeeSerachComponent]
 })
 export class SharedModule { }

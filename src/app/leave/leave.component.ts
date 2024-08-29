@@ -11,10 +11,11 @@ export class LeaveComponent implements OnInit {
 
   leaveForm: FormGroup | any;
   leaveTypes: string[] = ['Sick Leave', 'Casual Leave', 'Family Care', 'Govt Works', 'Religious Leave', 'Other'];
-
+  role:any;
   constructor(private fb: FormBuilder,private ser:DataService,private route:Router) { }
 
   ngOnInit(): void {
+    this.role="/"+localStorage.getItem('role');
     this.leaveForm = this.fb.group({
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
@@ -33,7 +34,8 @@ export class LeaveComponent implements OnInit {
       console.log(data.message);
       alert("Leave request sent successfully");
       this.leaveForm.reset();
-      this.route.navigate(['/employee']);
+      const role=localStorage.getItem('role');
+      this.route.navigate([`/${role}`]);
     },
   (err)=>{
     alert("failed to leave request could you please try again");

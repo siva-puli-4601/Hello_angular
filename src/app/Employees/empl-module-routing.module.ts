@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponentEmployee } from './home/home.component';
-import { LeaveComponent } from './leave/leave.component';
+import { LeaveComponent } from '../leave/leave.component';
 import { DashboardComponent } from '../admin/dashboard/dashboard.component';
 import { CalenderComponent } from './calender/calender.component';
-import { ShowLeavesComponent } from './show-leaves/show-leaves.component';
+import { ShowLeavesComponent } from '../show-leaves/show-leaves.component';
+import { EmployeeSerachComponent } from '../employee-serach/employee-serach.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'leave', component: LeaveComponent },
   {path:"calender", component:CalenderComponent},
   {path:"checkleaves",component:ShowLeavesComponent},
+  {path:"employeesearch", component:EmployeeSerachComponent},
   { path: '**', redirectTo: '' }, // Redirect unknown routes to home or a not-found page
 ];
 

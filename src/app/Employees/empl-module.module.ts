@@ -10,11 +10,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterModule } from '@angular/router';
-import { LeaveComponent } from './leave/leave.component';
+import { LeaveComponent } from '../leave/leave.component';
 import { CalenderComponent } from './calender/calender.component';
 import { HolidaycomponentComponent } from './holidaycomponent/holidaycomponent.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ShowLeavesComponent } from './show-leaves/show-leaves.component';
+import { ShowLeavesComponent } from '../show-leaves/show-leaves.component';
 
 
 @NgModule({

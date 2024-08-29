@@ -36,6 +36,7 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardComponent },
       { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), canActivate:[CheckGuardGuard]},
+      
       // Define other routes here
     ]
   }
