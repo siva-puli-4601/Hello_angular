@@ -22,18 +22,15 @@ import { ShowLeavesComponent } from './show-leaves/show-leaves.component';
     EmplModuleComponent,
     HomeComponentEmployee,
     SidebarComponent,
-    LeaveComponent,
+    // LeaveComponent,
     CalenderComponent,
     HolidaycomponentComponent,
-    ShowLeavesComponent
+    // ShowLeavesComponent
   ],
   imports: [
-    MatDialogModule,
-    MatIconModule,
     CommonModule,
     EmplModuleRoutingModule,
     SharedModule,
-    ReactiveFormsModule
   ]
 })
 export class EmplModuleModule { }

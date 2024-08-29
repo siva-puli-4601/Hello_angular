@@ -33,30 +33,4 @@
     max-width: 200px; /* Adjust as needed */
   }
   
-  .table button {
-    margin: 0 5px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
-    font-size: 14px;
-    transition: background-color 0.3s;
-  }
-  
-  .accept-button {
-    background-color: #4CAF50; /* Green for Accept */
-  }
-  
-  .reject-button {
-    background-color: #f44336; /* Red for Reject */
-  }
-  
-  .accept-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-  }
-  
-  .reject-button:hover {
-    background-color: #e53935; /* Darker red on hover */
-  }
   
