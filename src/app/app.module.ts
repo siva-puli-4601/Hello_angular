@@ -18,7 +18,9 @@ import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeSerachComponent } from './employee-serach/employee-serach.component';
+import { TimesheetComponent } from './timesheet/timesheet.component';
 
+// import { MatCalendar } from '@angular/material/calendar';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,6 @@ import { EmployeeSerachComponent } from './employee-serach/employee-serach.compo
     AboutComponent,
     ProfileComponent,
     
-    
   ],
   imports: [
     HttpClientModule,
@@ -39,7 +40,7 @@ import { EmployeeSerachComponent } from './employee-serach/employee-serach.compo
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
