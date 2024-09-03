@@ -7,6 +7,7 @@ import { CalenderComponent } from './calender/calender.component';
 import { ShowLeavesComponent } from '../show-leaves/show-leaves.component';
 import { EmployeeSerachComponent } from '../employee-serach/employee-serach.component';
 import { TimesheetComponent } from '../timesheet/timesheet.component';
+import { TimesheetsShowComponent } from '../timesheets-show/timesheets-show.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"checkleaves",component:ShowLeavesComponent},
   {path:"employeesearch", component:EmployeeSerachComponent},
   {path:"timesheet", component:TimesheetComponent},
+  {path:"timesheetshow", component:TimesheetsShowComponent},
   { path: '**', redirectTo: '' }, // Redirect unknown routes to home or a not-found page
 ];
 

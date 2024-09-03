@@ -20,11 +20,39 @@ export class TimesheetrequestsComponent implements OnInit {
   }
   acceptTimesheet(id:any)
   {
-
+    const data={
+      id:id,
+      status:'accepted'
+    }
+     this.ser.postApi("gettimesheetsstatus",data).subscribe((data:any)=>
+    {
+      alert("Timesheet accepted");
+      this.ngOnInit();
+    },(err)=>
+    {
+      alert("Failed to accept timesheet");
+      this.ngOnInit();
+    })
   }
   rejectTimesheet(id:any)
   {
-
+    const data={
+      id:id,
+      status:'rejected'
+    }
+     this.ser.postApi("gettimesheetsstatus",data).subscribe((data:any)=>
+    {
+      alert("Timesheet rejected");
+      this.ngOnInit();
+    },(err)=>
+    {
+      alert("Failed to accept rejected");
+      this.ngOnInit();
+    })
+  }
+  DateCast(value:any)
+  {
+    return new Date(value).toLocaleString();
   }
 
 }

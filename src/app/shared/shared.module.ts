@@ -16,6 +16,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { TimesheetsShowComponent } from '../timesheets-show/timesheets-show.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     LeaveComponent,
     ShowLeavesComponent,
     EmployeeSerachComponent,
-    TimesheetComponent
+    TimesheetComponent,
+    TimesheetsShowComponent
   ],
 
   imports: [
@@ -40,6 +42,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     FormsModule
   ],
-  exports: [HeaderComponent, FooterComponent, DashboardComponent,LeaveComponent,ShowLeavesComponent,EmployeeSerachComponent,TimesheetComponent]
+  exports: [HeaderComponent, FooterComponent, DashboardComponent,TimesheetsShowComponent,LeaveComponent,ShowLeavesComponent,EmployeeSerachComponent,TimesheetComponent]
 })
 export class SharedModule { }

@@ -161,6 +161,41 @@ body {
   .btn-submit:hover {
     background-color: #0056b3;
   }
+  /* Base styling for the link */
+.show-timesheets-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.4);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+  
+  /* Hover effect */
+  .show-timesheets-link:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 123, 255, 0.6);
+    transform: translateY(-2px);
+  }
+  
+  /* Focus effect */
+  .show-timesheets-link:focus {
+    outline: none;
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 123, 255, 0.8);
+    transform: translateY(-2px);
+  }
+  
+  /* Active state */
+  .show-timesheets-link:active {
+    background-color: #003f7f;
+    box-shadow: 0 3px 5px rgba(0, 123, 255, 0.3);
+    transform: translateY(1px);
+  }
+  
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

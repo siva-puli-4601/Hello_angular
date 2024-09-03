@@ -10,7 +10,7 @@ import { DataService } from '../data.service';
 export class TimesheetComponent  {
   
   constructor(private ser:DataService) { }
-
+  role=localStorage.getItem('role');
   selectedWeek = 6;
   totalhours=0;
   weekDates = this.getWeekDates(); // Assuming this is a method to get the week's dates

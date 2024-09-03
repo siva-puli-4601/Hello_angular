@@ -8,6 +8,8 @@ import { LeaveComponent } from '../leave/leave.component';
 import { ShowLeavesComponent } from '../show-leaves/show-leaves.component';
 import { EmployeeSerachComponent } from '../employee-serach/employee-serach.component';
 import { TimesheetComponent } from '../timesheet/timesheet.component';
+import { TimesheetrequestsComponent } from './timesheetrequests/timesheetrequests.component';
+import { TimesheetsShowComponent } from '../timesheets-show/timesheets-show.component';
 
 const routes: Routes = [
   // {path:"", component:AdminComponent},
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path:"checkleaves", component:ShowLeavesComponent},
   {path:"employeesearch", component:EmployeeSerachComponent},
   {path:"timesheet", component:TimesheetComponent},
+  {path:"timesheetrequest",component:TimesheetrequestsComponent},
+  {path:"timesheetshow", component:TimesheetsShowComponent},
   { path: '**', redirectTo: '' } // Redirect unknown routes to home or a not-found page
 ];
 

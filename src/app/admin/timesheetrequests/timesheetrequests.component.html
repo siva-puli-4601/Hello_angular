@@ -11,12 +11,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users">
+        <ng-container *ngFor="let user of users">
+        <tr *ngIf="user.status==='submitted'">
           <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.startDate | date: 'MMM dd, yyyy' }}</td>
-          <td>{{ user.endDate | date: 'MMM dd, yyyy' }}</td>
-          <td>{{ user.totalHours }}</td>
+          <td>{{ DateCast(user.startdate) | date }}</td>
+          <td>{{ DateCast(user.enddata) | date }}</td>
+          <td>{{ user.totalhours }}</td>
           <td class="actions">
             <button class="btn-accept" (click)="acceptTimesheet(user.id)">
               Accept
@@ -26,6 +27,7 @@
             </button>
           </td>
         </tr>
+    </ng-container>
       </tbody>
     </table>
   </div>

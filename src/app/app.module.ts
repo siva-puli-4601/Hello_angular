@@ -19,6 +19,7 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeSerachComponent } from './employee-serach/employee-serach.component';
 import { TimesheetComponent } from './timesheet/timesheet.component';
+import { TimesheetsShowComponent } from './timesheets-show/timesheets-show.component';
 
 // import { MatCalendar } from '@angular/material/calendar';
 
@@ -31,6 +32,7 @@ import { TimesheetComponent } from './timesheet/timesheet.component';
     DisplayComponent,
     AboutComponent,
     ProfileComponent,
+    
     
   ],
   imports: [

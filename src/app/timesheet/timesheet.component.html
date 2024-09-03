@@ -49,7 +49,9 @@
       <!-- Submit Button -->
       <button class="btn-submit" (click)="submitTimesheet()">
         Submit Timesheet
-      </button>
+      </button><br>
+      <a [routerLink]="'/' + role + '/timesheetshow'" class="show-timesheets-link">Show Timesheets</a>
+
     </div>
   </div>
   
