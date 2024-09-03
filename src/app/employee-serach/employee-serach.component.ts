@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { DataService } from '../data.service';
 
 @Component({
@@ -10,45 +10,70 @@ import { DataService } from '../data.service';
 })
 export class EmployeeSerachComponent implements OnInit {
 
-  employees: any[] = [];
-  filteredEmployees: any[] = [];
-  searchControl: FormControl = new FormControl('');
+  records: any[] = [];
+  page = 1;
+  limit = 10;
+  search = '';
+  loading = false;
+  allRecordsLoaded = false;
 
-  constructor(private ser: DataService) {}
+  private searchSubject = new Subject<string>();
+  private unsubscribe$ = new Subject<void>();
+
+  constructor(private recordsService:DataService ) { }
 
   ngOnInit(): void {
-    this.fetchEmployees();
-    this.setupSearch();
-  }
+    this.getRecords();
 
-  fetchEmployees(): void {
-    this.ser.getApi("employeesearch").subscribe((data: any) => {
-      this.employees = data.message;
-      this.filteredEmployees = data; // Initialize with all data
-    });
-  }
-
-  setupSearch(): void {
-    this.searchControl.valueChanges.pipe(
-      debounceTime(300), // Wait for 300ms pause in events
-      distinctUntilChanged() // Ignore if next search query is same as previous
+    this.searchSubject.pipe(
+      debounceTime(300), // Wait 300ms after the last event before emitting the last event
+      distinctUntilChanged(), // Only emit if the current value is different from the last
+      takeUntil(this.unsubscribe$)
     ).subscribe(searchTerm => {
-      this.filterEmployees(searchTerm);
+      this.search = searchTerm;
+      this.page = 1;
+      this.allRecordsLoaded = false;
+      this.records = [];
+      this.getRecords();
     });
   }
 
-  filterEmployees(searchTerm: string): void {
-    if (!searchTerm) {
-      this.filteredEmployees = this.employees;
-    } else {
-      console.log(searchTerm);
-      console.log(this.employees);
-      searchTerm = searchTerm.toLowerCase();
-      this.filteredEmployees = this.employees.filter(employee =>
-        employee.username.toLowerCase().includes(searchTerm) ||
-        employee.role.toLowerCase().includes(searchTerm) ||
-        employee.email.toLowerCase().includes(searchTerm)
-      );
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
+  getRecords(): void {
+    if (this.loading || this.allRecordsLoaded) return;
+
+    this.loading = true;
+    this.page, this.limit, this.search
+    const data={
+     "page": this.page,
+     "limit": this.limit,
+     "search": this.search,
+     
     }
+    this.recordsService.postApi("employeesearch",data)
+      .subscribe((response: any) => {
+        if (response.message.length < this.limit) {
+          this.allRecordsLoaded = true;
+        }
+        this.records = [...this.records, ...response.message];
+        this.loading = false;
+      });
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+      this.page++;
+      this.getRecords();
+    }
+  }
+
+  onSearchChange(searchValue: any): void {
+    const value=searchValue.target.value;
+    this.searchSubject.next(value);
   }
 }

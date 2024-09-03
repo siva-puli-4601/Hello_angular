@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LeaverequestsComponent } from './leaverequests/leaverequests.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterLink, RouterModule } from '@angular/router';
+import { TimesheetrequestsComponent } from './timesheetrequests/timesheetrequests.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { RouterLink, RouterModule } from '@angular/router';
     AdminComponent,
     HomeComponentAdmin,
     SidebarComponent,
-    LeaverequestsComponent
+    LeaverequestsComponent,
+    TimesheetrequestsComponent
   ],
   imports: [
     CommonModule,
