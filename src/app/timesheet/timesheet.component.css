@@ -143,6 +143,24 @@ body {
     font-weight: bold;
     color: #28a745;
 }
+.btn-submit {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 14px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .btn-submit:hover {
+    background-color: #0056b3;
+  }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

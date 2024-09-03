@@ -1,7 +1,6 @@
 <div class="timesheet-container">
     <!-- Timesheet Header -->
     <div class="timesheet-header">
-      
       <div class="controls">
         <!-- Datepicker Trigger -->
         <mat-form-field appearance="outline">
@@ -31,7 +30,6 @@
   
     <!-- Timesheet Body -->
     <div class="timesheet-body">
-      
       <div class="day-entries">
         <div class="day-entry" *ngFor="let day of weekDates; let i = index">
           <span class="day-label">{{ day | date: 'EEE' }} ({{ day | date: 'MMM dd' }})</span>
@@ -47,8 +45,11 @@
       </div>
       <div class="total-time">
         <strong>{{ totalHours() }} hrs</strong> reported <br />
-        
       </div>
+      <!-- Submit Button -->
+      <button class="btn-submit" (click)="submitTimesheet()">
+        Submit Timesheet
+      </button>
     </div>
   </div>
   

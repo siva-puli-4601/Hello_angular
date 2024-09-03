@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-timesheet',
@@ -8,12 +9,14 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 })
 export class TimesheetComponent  {
   
+  constructor(private ser:DataService) { }
 
   selectedWeek = 6;
+  totalhours=0;
   weekDates = this.getWeekDates(); // Assuming this is a method to get the week's dates
   dayEntries = Array(7).fill(0); // Initialize with 0 hours for each day
   scheduledHours = 0;
-
+  
   onDateSelected(event: MatDatepickerInputEvent<Date>) {
     const selectedDate = event.value;
     if (selectedDate) {
@@ -47,15 +50,39 @@ export class TimesheetComponent  {
 
   downloadReport() {
     console.log('Download report clicked');
+    console.log(this.weekDates)
     // Logic for downloading the report
   }
 
   totalHours() {
-    return this.dayEntries.reduce((acc, hours) => acc + +hours, 0);
+    this.totalhours=this.dayEntries.reduce((acc, hours) => acc + +hours, 0);
+    return  this.totalhours;
   }
 
   getWeekDates(selectedDate: Date = new Date()) {
     const startOfWeek = selectedDate.getDate() - selectedDate.getDay();
+    
     return Array.from({ length: 7 }, (_, i) => new Date(selectedDate.setDate(startOfWeek + i)));
+  }
+  submitTimesheet()
+  {
+     const data={
+      "startdate":this.weekDates[0],
+      "enddate":this.weekDates[6],
+      "status":"submitted",
+      "totalhours": this.totalhours,
+      "email":localStorage.getItem("email"),
+      "username":localStorage.getItem("username")
+     }
+     this.ser.postApi("timesheet", data).subscribe((data)=>
+    {
+      alert("sucessfully updated");
+
+    },
+     (err)=>
+    {
+      console.log(err);
+      alert("failed to update");
+    })
   }
 }
