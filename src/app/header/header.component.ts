@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   profilePic:any = null;
   dropdownVisible=false;
   value:boolean = false;
+  user:any;
   username:any;
   profile:any;
   ngOnInit() {
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
     this.value = savedState === 'true'; // Default to false if key is not foun
     if(savedState==="true")
     {
+      this.user=localStorage.getItem('role');
       this.islogin=true;
       this.username=localStorage.getItem('username');
       this.profile=localStorage.getItem('profile');

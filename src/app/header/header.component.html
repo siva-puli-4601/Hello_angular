@@ -3,6 +3,9 @@
     <!-- Left Side -->
     <div class="left-side">
       <h1 class="logo">Mini Hubble</h1>
+      <div *ngIf="islogin">
+        <a [routerLink]="'/'+user" class="header-link">DashBoard</a>
+      </div>
     </div>
 
     <!-- Center Content -->

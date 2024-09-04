@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DisplayComponent } from './display/display.component';
 import { AboutComponent } from './about/about.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterLink } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeSerachComponent } from './employee-serach/employee-serach.component';
 import { TimesheetComponent } from './timesheet/timesheet.component';
 import { TimesheetsShowComponent } from './timesheets-show/timesheets-show.component';
+import { ErrorComponent } from './error/error.component';
+import { ErrorInterceptor } from './error.interceptor';
 
 // import { MatCalendar } from '@angular/material/calendar';
 
@@ -32,6 +34,7 @@ import { TimesheetsShowComponent } from './timesheets-show/timesheets-show.compo
     DisplayComponent,
     AboutComponent,
     ProfileComponent,
+    ErrorComponent,
     
     
   ],
@@ -44,7 +47,9 @@ import { TimesheetsShowComponent } from './timesheets-show/timesheets-show.compo
     SharedModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

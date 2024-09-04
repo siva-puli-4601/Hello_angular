@@ -11,6 +11,7 @@ import { HomeComponentAdmin } from './admin/home/home.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { HomeComponentEmployee } from './Employees/home/home.component';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   { path: "", component:HomeComponent },
@@ -39,7 +40,9 @@ const routes: Routes = [
       
       // Define other routes here
     ]
-  }
+  },
+  {path:"error", component:ErrorComponent},
+  {path:"**", redirectTo:"/error"}
   
 ];
 
