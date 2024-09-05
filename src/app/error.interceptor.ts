@@ -20,7 +20,8 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (error.status >= 400 && error.status < 500) {
           
           this.router.navigate(['/error'], { queryParams: { message: error.message } });
-        } else {
+        } 
+        else {
           
           this.router.navigate(['/error'], { queryParams: { message: 'Server error occurred' } });
         }
