@@ -42,7 +42,13 @@ export class LeaveComponent implements OnInit {
   })
   }
   generateReason(reason:any):void{
-       this.ser.postApi("genratereason",reason).subscribe((data)=>{
+    const body={
+      "reason":reason,
+      "startdate":this.leaveForm.value.startDate,
+      "enddate":this.leaveForm.value.endDate,
+      "type":this.leaveForm.value.leaveType
+    }
+       this.ser.postApi("genratereason",body).subscribe((data)=>{
         console.log(data.message);
         this.leaveForm.patchValue({reason:data.message});
        },
