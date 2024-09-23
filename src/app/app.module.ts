@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplayComponent } from './display/display.component';
 import { AboutComponent } from './about/about.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -22,6 +22,8 @@ import { TimesheetComponent } from './timesheet/timesheet.component';
 import { TimesheetsShowComponent } from './timesheets-show/timesheets-show.component';
 import { ErrorComponent } from './error/error.component';
 import { ErrorInterceptor } from './error.interceptor';
+import { ChatUiComponent } from './chat-ui/chat-ui.component';
+
 
 // import { MatCalendar } from '@angular/material/calendar';
 
@@ -35,8 +37,7 @@ import { ErrorInterceptor } from './error.interceptor';
     AboutComponent,
     ProfileComponent,
     ErrorComponent,
-    
-    
+    ChatUiComponent,  
   ],
   imports: [
     HttpClientModule,
@@ -46,6 +47,7 @@ import { ErrorInterceptor } from './error.interceptor';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }

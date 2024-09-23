@@ -9,6 +9,8 @@ import { LeaverequestsComponent } from './leaverequests/leaverequests.component'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterLink, RouterModule } from '@angular/router';
 import { TimesheetrequestsComponent } from './timesheetrequests/timesheetrequests.component';
+import { RecquirementComponent } from './recquirement/recquirement.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,12 +19,14 @@ import { TimesheetrequestsComponent } from './timesheetrequests/timesheetrequest
     HomeComponentAdmin,
     SidebarComponent,
     LeaverequestsComponent,
-    TimesheetrequestsComponent
+    TimesheetrequestsComponent,
+    RecquirementComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
+    ReactiveFormsModule
   ],
 })
 export class AdminModule { }

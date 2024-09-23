@@ -10,6 +10,7 @@ import { EmployeeSerachComponent } from '../employee-serach/employee-serach.comp
 import { TimesheetComponent } from '../timesheet/timesheet.component';
 import { TimesheetrequestsComponent } from './timesheetrequests/timesheetrequests.component';
 import { TimesheetsShowComponent } from '../timesheets-show/timesheets-show.component';
+import { RecquirementComponent } from './recquirement/recquirement.component';
 
 const routes: Routes = [
   // {path:"", component:AdminComponent},
@@ -21,6 +22,8 @@ const routes: Routes = [
   {path:"timesheet", component:TimesheetComponent},
   {path:"timesheetrequest",component:TimesheetrequestsComponent},
   {path:"timesheetshow", component:TimesheetsShowComponent},
+  {path:"searchresume", component:RecquirementComponent},
+
   { path: '**', redirectTo: '' } // Redirect unknown routes to home or a not-found page
 ];
 

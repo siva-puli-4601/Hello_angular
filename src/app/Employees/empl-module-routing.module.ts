@@ -8,6 +8,7 @@ import { ShowLeavesComponent } from '../show-leaves/show-leaves.component';
 import { EmployeeSerachComponent } from '../employee-serach/employee-serach.component';
 import { TimesheetComponent } from '../timesheet/timesheet.component';
 import { TimesheetsShowComponent } from '../timesheets-show/timesheets-show.component';
+import { ChatUiComponent } from '../chat-ui/chat-ui.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:"employeesearch", component:EmployeeSerachComponent},
   {path:"timesheet", component:TimesheetComponent},
   {path:"timesheetshow", component:TimesheetsShowComponent},
+  {path:"chat", component:ChatUiComponent},
   { path: '**', redirectTo: '' }, // Redirect unknown routes to home or a not-found page
 ];
 

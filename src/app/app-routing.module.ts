@@ -12,6 +12,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { HomeComponentEmployee } from './Employees/home/home.component';
 import { ErrorComponent } from './error/error.component';
+import { HomestudentComponent } from './student/homestudent/homestudent.component';
 
 const routes: Routes = [
   { path: "", component:HomeComponent },
@@ -42,6 +43,17 @@ const routes: Routes = [
     ]
   },
   {path:"error", component:ErrorComponent},
+  {
+    path: '',
+    component: HomestudentComponent,
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'student', loadChildren: () => import('./student/student.module').then(m => m.StudentModule) },
+      
+      // Define other routes here
+    ]
+  },
+  
   {path:"**", redirectTo:"/error"}
   
 ];

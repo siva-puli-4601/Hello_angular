@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponentAdmin } from './home.component';
+import { ResumeUploadComponent } from './resume-upload.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponentAdmin;
-  let fixture: ComponentFixture<HomeComponentAdmin>;
+describe('ResumeUploadComponent', () => {
+  let component: ResumeUploadComponent;
+  let fixture: ComponentFixture<ResumeUploadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponentAdmin ]
+      declarations: [ ResumeUploadComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HomeComponentAdmin);
+    fixture = TestBed.createComponent(ResumeUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
