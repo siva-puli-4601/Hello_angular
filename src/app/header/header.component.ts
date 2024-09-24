@@ -38,7 +38,8 @@ toggleDropdown()
 {
   this.dropdownVisible=!this.dropdownVisible;
 } 
-  logOut()
+
+logOut()
   {
     localStorage.removeItem('islogin');
     localStorage.removeItem('username');
@@ -48,7 +49,6 @@ toggleDropdown()
     this.route.navigate(['/login']);
   }
 
- 
 }
 
 

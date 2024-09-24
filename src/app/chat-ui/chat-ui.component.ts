@@ -1,5 +1,5 @@
 import { Component, Renderer2 } from '@angular/core';
-
+import { DataService } from '../data.service';
 
 interface Message {
   text: string;
@@ -16,6 +16,7 @@ interface ChatSession {
   templateUrl: './chat-ui.component.html',
   styleUrls: ['./chat-ui.component.css']
 })
+
 export class ChatUiComponent  {
 
   userInput: string = '';
@@ -23,7 +24,7 @@ export class ChatUiComponent  {
   currentChat: ChatSession = { date: new Date(), messages: [] };
   isDarkTheme:any;
 
-  constructor(private renderer:Renderer2) {
+  constructor(private renderer:Renderer2,private ser:DataService) {
     // Load previous chats from localStorage on component load
     const storedChats = localStorage.getItem('previousChats');
     if (storedChats) {
@@ -32,18 +33,30 @@ export class ChatUiComponent  {
   }
   
 
-  sendMessage() {
-    if (this.userInput.trim()) {
+  sendMessage(ele:any) {
+    var data=ele.value;
+    if (data.trim()) {
       // Add user message to the current chat
-      this.currentChat.messages.push({ text: this.userInput, sender: 'user' });
+      this.currentChat.messages.push({ text: data, sender: 'user' });
 
       // Simulate bot response after a delay
       setTimeout(() => {
-        this.currentChat.messages.push({ text: 'This is a bot response!', sender: 'bot' });
-      }, 1000);
+        const body={
+          "message": data
+        }
+        console.log(body);
+        this.ser.postApi("chatbot",body).subscribe((data:any)=>
+        {
+        this.currentChat.messages.push({ text: data.message, sender: 'bot' });
+        },
+        (err:any)=>
+        {
+          console.log("Failed to get data",err.message);
+        }
+      )}, 3000);
 
       // Clear the input
-      this.userInput = '';
+      ele.value = '';
     }
   }
 
@@ -52,7 +65,6 @@ export class ChatUiComponent  {
     if (this.currentChat.messages.length) {
       this.previousChats.push({ ...this.currentChat });
       this.currentChat = { date: new Date(), messages: [] };
-  
       // Save to localStorage
       localStorage.setItem('previousChats', JSON.stringify(this.previousChats));
     }
@@ -66,10 +78,10 @@ export class ChatUiComponent  {
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
     if (this.isDarkTheme) {
-      this.renderer.addClass(document.body, 'dark-theme');
+      this.renderer.addClass(document.documentElement, 'dark-theme');
     } 
     else {
-      this.renderer.removeClass(document.body, 'dark-theme');
+      this.renderer.removeClass(document.documentElement, 'dark-theme');
     }
   }
 }
