@@ -1,3 +1,4 @@
+
 <div class="chat-layout">
     <!-- Sidebar for previous chats -->
     <div class="sidebar">
@@ -29,10 +30,15 @@
   
       <!-- Chat input area -->
       <div class="chat-input-container">
-        <textarea #userInput  placeholder="Type your message..." rows="1"></textarea>
-        <button (click)="sendMessage(userInput)">Send</button>
+        <textarea [(ngModel)]="userInput" placeholder="Type your message..." rows="1"></textarea>
+         <button (click)="sendMessage()">Send</button>
+
         <button (click)="saveChat()">Save</button>
       </div>
     </div>
 </div>
   
+
+
+
+
